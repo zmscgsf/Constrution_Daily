@@ -1,0 +1,17 @@
+{% extends "note/base.html" %}
+
+{% block content %}
+
+<ul>
+  {% for topic in topics %}
+    <li>
+	<a href=" {% url 'note:topic' topic.id %}">{{ topic }}</a>
+	</li>
+  {% empty %}
+    <li>请增加单位工程</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'note:new_topic' %}">增加新的单位工程：</a>
+
+{% endblock content %}
