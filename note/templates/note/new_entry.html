@@ -1,0 +1,14 @@
+{% extends "note/base.html" %}
+
+{% block content %}
+    <p>
+    添加<a href="{% url 'note:topic' topic.id %}">{{ topic }}</a>施工日志:
+    </p>
+
+	<form action="{% url 'note:new_entry' topic.id %}" method='post'>
+	  {%csrf_token%}
+	  {{form.as_p}}
+	  <button name="submit">提交日志</button>
+	</form>
+
+{% endblock content %}

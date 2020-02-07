@@ -1,8 +1,11 @@
 {% extends "note/base.html" %}
 
 {% block content %}
-    <p>{{ topic }}施工日志：</p>
-<ul>
+    <p>
+	<h3>{{ topic }}施工日志：</h3>
+	<a href="{% url 'note:new_entry' topic.id %}"><h4>添加日志</h4></a>
+	</p>
+ <ul>
   {% for entry in entries %}
     <li>
 		<p>{{entry.date_added|date:'Y-m-d'}}</p>
@@ -13,6 +16,8 @@
     请按时填报每日工作日志
 	</li>
   {% endfor %}
+  
+  
 </ul>
   
 {% endblock content %}

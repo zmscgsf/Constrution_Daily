@@ -5,7 +5,7 @@
 <ul>
   {% for topic in topics %}
     <li>
-	<a href=" {% url 'note:topic' topic.id %}">{{ topic }}</a>
+    <a href="{% url 'note:topic' topic.id %}">{{ topic }}</a>
 	</li>
   {% empty %}
     <li>请增加单位工程</li>
