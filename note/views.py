@@ -34,7 +34,7 @@ def entries(request):
 
 
 def new_topic(request):
-    # 添加新主题
+    # 添加单位工程
     if request.method != 'POST':
         # 未提交数据：创建一个新表单
         form = TopicForm()
@@ -50,7 +50,7 @@ def new_topic(request):
 
 
 def new_entry(request, topic_id):
-    '''在特定的主题中添加新条目'''
+    '''在指定单位工程中添加施工日志'''
     topic = Topic.objects.get(id=topic_id)
 
     if request.method != 'POST':

@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from note.models import Topic,Entry
+from note.models import Topic, Entry
 admin.site.register(Topic)
 admin.site.register(Entry)
-
