@@ -9,7 +9,8 @@
   {% for entry in entries %}
     <li>
 		<p>{{entry.date_added|date:'Y-m-d'}}</p>
-		<p>{{entry.text|linebreaks}}</p>
+    <p>{{entry.text|linebreaks}}</p>
+    <a href="{% url 'note:edit_entry' entry.id %}"><h4>修改日志</h4></a>
     </li>
   {% empty %}
     <li>

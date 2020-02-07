@@ -66,3 +66,21 @@ def new_entry(request, topic_id):
             return HttpResponseRedirect(reverse('note:topic', args=[topic_id]))
     context = {'topic': topic, 'form': form}
     return render(request, 'note/new_entry.html', context)
+
+
+def edit_entry(request, entry_id):
+    '''编辑施工日志'''
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+
+    if request.method != 'POST':
+        # 初次请求，使用当前日志填充表单
+        form = EntryForm(instance=entry)
+    else:
+        # post提交的数据，对数据进行处理
+        form = EntryForm(instance=entry, data=request.POST)
+        if form.is_valid:
+            form.save()
+            return HttpResponseRedirect(reverse('note:topic', args=[topic.id]))
+    context = {'entry': entry, 'topic': topic, 'form': form}
+    return render(request, 'note/edit_entry.html', context)
