@@ -1,9 +1,9 @@
 {% extends "note/base.html" %}
 
 {% block content %}
-    <p>
+<a href="{% url 'note:new_entry' topic.id %}"><h3>添加{{ topic }}日志</h3></a>
+  <p>
 	<h3>{{ topic }}施工日志：</h3>
-	<a href="{% url 'note:new_entry' topic.id %}"><h4>添加日志</h4></a>
 	</p>
  <ul>
   {% for entry in entries %}
