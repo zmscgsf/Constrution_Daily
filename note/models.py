@@ -26,3 +26,10 @@ class Entry(models.Model):
 
     class Meta:
         verbose_name_plural = '施工日志'
+
+    def __str__(self):
+        """返回日志前50字"""
+        if len(self.text)>20:
+            return self.text[:20] + "..."
+        else:
+            return self.text[:20]
