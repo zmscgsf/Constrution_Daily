@@ -5,7 +5,8 @@
 <ul>
   {% for entry in entries %}
     <li>
-	<p>{{entry.date_added|date:'m-d'}}:{{ entry.text }}---{{entry.topic_id }}</p>
+	    <p>{{entry.topic }}{{entry.date_added|date:'m-d'}}:</pp>
+      <p>{{ entry.text }}</p>
 	</li>
   {% empty %}
     <li>请按时填报施工日志</li>

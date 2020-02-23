@@ -25,7 +25,7 @@ SECRET_KEY = '_1)pyzm^ov_+*q-b^iw^hpvz=#%93u)@1x4*!@r_g9ow%k6rd3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 第三方应用程序
+    'bootstrap3',
     # my apps
     'note',
     'users',
@@ -78,8 +80,17 @@ WSGI_APPLICATION = 'notebook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'notebook',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        "OPTIONS": {
+		#"init_command": 'SET sql_mode="STRICT_TRANS_TABLES"', 
+		"charset": "utf8mb4"},
     }
 }
 
@@ -125,3 +136,7 @@ STATIC_URL = '/static/'
 
 # my_set
 LOGIN_URL = '/users/login/'
+# django-bootstrap3的设置
+BOOTSTRAP3 = { 
+    'include_jquery': True,
+    }
